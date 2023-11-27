@@ -10,6 +10,7 @@ import Dog   from './test/Dog' ;
 // 현재 변수 Cat 에 들어있는 것은 Cat 이라는 함수 컴포넌트이다.
 import Cat   from './test/Cat' ;
 import Vote from './test/Vote';
+import LoginForm from './login/LoginForm';
 
 function App() {
   return (
@@ -22,34 +23,10 @@ function App() {
       <Route path="/test/dog" element={<Dog/>}/>
       <Route path="/test/cat" element={<Cat/>}/>
       <Route path="/test/vote" element={<Vote/>}/>
-      {/* <div class="main">
-		<form name="loginForm">
-			<table>
-        <div class="title">서비스 이용을 위해<br/>로그인을 해주세요.</div>
-				<tr>
-					<td>
-						<input type="text" name="mid" placeholder="아이디" class="mid"/>
-					</td> 
-				</tr> 
-				<tr>
-					<td>
-						<input type="password" name="pwd" class="pwd" placeholder="비밀번호"/>
-					</td> 
-				</tr> 
-			</table>
-      <div class="auto_box">
-        <input type="checkbox" name="autoLogin" value="yes" class="autoLogin"/>
-        <span class="autoTxt">자동 로그인</span>
-      </div>
-      <div class="button_box">
-        <input type="button" value="Login" class="loginBtn" onClick="checkLoginForm()"/>
-      
-      </div>
-		</form>
-  </div> */}
+      <Route path="/login/loginForm" element={<LoginForm/>}/>
     </Routes>
     </>
-    
+
   
   );
 }

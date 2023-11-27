@@ -7,8 +7,20 @@ import {useState} from 'react';
 // (리액트에서 사용하는 단위 프로그램이 컴포넌트이다.)
 // return() 가 있으면, return(JSX 문법) 이 나오면 단순 익명함수가 아니라 컴포넌트이다.
 const Vote = () => {
+    // voteCntJson 변수, setVoteCnt 변수 선언하기
+    // useState({ age20: 0, age30: 0, age40: 0 }); 함수 호출하여 얻은 Array 객체 안에서
+    // 1번째 데이터를 복사해서 voteCntJson 변수에 저장하기
+    // 2번째 데이터를 복사해서 setVoteCnt 변수에 저장하기
+    // voteCntJson 변수에는 { age20: 0, age30: 0, age40: 0 } 가 초기화되고
+    // setVoteCnt 변수에는 voteCntJson 안의 데이터를 수정하는 익명함수가 저장됨.
+    // 이후부터 setVoteCnt(~) 라는 코딩이 호출되면
+    // voteCntJson 변수 안의 데이터가 갱신되고 함수 컴포넌트가 재호출된다.
+    // 함수 컴포넌트가 재호출되더라도 voteCntJson, setVoteCnt 이전 데이터를 유지한다.
     const [voteCntJson, setVoteCnt] = useState({ age20: 0, age30: 0, age40: 0 });
 
+    // 변수 updateVoteCnt 선언하고 익명함수 저장하기
+    // 이 익명함수는 아래 + 버튼을 누를 때마다 호출된다.
+    // <주의> 이 익명함수의 매개변수로는 나이대가 들어온다.
     const updateVoteCnt = (age) => {
         setVoteCnt(ageVoteCnt => ({
             ...ageVoteCnt,
