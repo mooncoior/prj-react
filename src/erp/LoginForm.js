@@ -2,9 +2,10 @@ import React from 'react';
 // CSS 파일 수입하기
 // <주의> CSS 파일 수입할 때는 from 이 나오지 않는다, 확장자명 .css 까지 써야한다.
 import '../common/style.css';
-// 'react' 라는 이름의 모듈에서 수출하는 useState, useCallback, useRef, useEffect 함수를
-// 수입해서 변수 useState, useCallback, useRef, useEffect 에 저장하기
+// 'react' 라는 이름의 모듈에서 수출하는 useState, useCallback, useRef, useEffect, useNavigate 함수를
+// 수입해서 변수 useState, useCallback, useRef, useEffect, useNavigate 에 저장하기
 import {useState,useCallback,useRef,useEffect} from 'react';
+import { useNavigate } from "react-router-dom";
 
 // 파일에서 공용 함수 n개 수입할 때의 코딩
 // 호출은 공용함수명() 으로 한다.
@@ -17,7 +18,6 @@ import * as cm from "../common/common"
 
 // 'axios' 라는 모듈에서 디폴트로 수출하는 객체 수입하여 변수 axios 에 저장하기
 import axios from 'axios';
-
 // LoginForm 함수 컴포넌트 선언하기
 // 함수 안 마지막 return (JSX 문법 코딩)이 나오기 때문에 함수 컴포넌트이다.
 const LoginForm = () => {
@@ -34,6 +34,8 @@ const LoginForm = () => {
   const[values, setValues] = useState({mid:"",pwd:""});
 
   const midRef = useRef(null);
+
+  const movePage = useNavigate();
 
   // 변수 onChange 선언하고
   // 아이디 또는 암호 입력할 때 마다 실행하는 익명함수 저장하기
@@ -138,6 +140,7 @@ const LoginForm = () => {
     .then(function(response){
       if(response.data==1){
         alert("로그인 성공")
+        movePage("/main")
       }
       else{
         alert("아이디 또는 암호가 틀립니다.")
