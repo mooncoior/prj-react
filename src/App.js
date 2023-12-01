@@ -11,6 +11,7 @@ import Dog   from './test/Dog' ;
 import Cat   from './test/Cat' ;
 import Vote from './test/Vote';
 import Student from './test/Student';
+import DeveloperRegForm from './erp/DeveloperRegForm';
 import LoginForm from './erp/LoginForm';
 import Main from './erp/Main';
 
@@ -26,6 +27,7 @@ function App() {
       <Route path="/test/cat" element={<Cat/>}/>
       <Route path="/test/vote" element={<Vote/>}/>
       <Route path="/test/student" element={<Student/>}/>
+      <Route path="/devRegForm" element={<DeveloperRegForm/>}/>
       <Route path="/loginForm" element={<LoginForm/>}/>
       <Route path="/main" element={<Main/>}/>
     </Routes>

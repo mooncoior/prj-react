@@ -12,3 +12,29 @@ export function checkVal(
     }
     return false;
 }
+
+export const getNewValues = (e, values) => {
+    let { name, value, type, checked } = e.target;
+    let new_values;
+
+    if (type === "checkbox") {
+        if (checked) {
+            new_values = {
+                ...values,
+                skill: [...values.skill, value],
+            };
+        } else {
+            new_values = {
+                ...values,
+                skill: values.skill.filter((skill) => skill !== value),
+            };
+        }
+    } else {
+        new_values = {
+            ...values,
+            [name]: value,
+        };
+    }
+    return new_values;
+    
+};
