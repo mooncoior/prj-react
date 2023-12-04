@@ -5,7 +5,10 @@ const DeveloperRegForm = () => {
     const [values, setValues] = useState({
         dev_name: "",
         jumin_num: "",
-        skill: [],
+        // 값이 중복될 가능성을 배제시키는 코드
+        // 방법 2.
+        // skill 을 아예 삭제시킨다.
+        skill: []
     });
 
     const onChange = (e) => {
@@ -17,7 +20,28 @@ const DeveloperRegForm = () => {
     //     let new_values;
     
     //     if (type == "checkbox") {
+            //--------------------------------------------
+            // 방법 2. 
+            // let arr;
+            // if(values[name]==undefined || values[name]==null){
+                // arr = [];
+            // }
+            //else{
+                // arr = values[name].filter(function(v,i){
+                    // return v!=value
+                // })
+            // }
+            //--------------------------------------------
+        
     //         if (checked) {
+            //--------------------------------------------
+                    // 방법 2.
+                    // arr.push(value)
+                // }
+                // setValues({...value,[name]:arr})
+                //}
+            //--------------------------------------------
+
     //             new_values = {
     //                 ...values,
     //                 skill: [...values.skill, value]
